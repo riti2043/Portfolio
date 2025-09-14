@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rithya Jayaram | Portfolio</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+        html {
+            scroll-behavior: smooth;
+        }
+        body {
+            font-family: 'Poppins', sans-serif;
+            font-weight: 300;
+            line-height: 1.8;
+            margin: 0;
+            padding: 0;
+            background-color: #111827;
+            color: #D1D5DB;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1000px;
+            margin: auto;
+            overflow: hidden;
+            padding: 0 20px;
+        }
+
+        header {
+            background: #1F2937;
+            padding: 15px 0;
+            border-bottom: 1px solid #374151;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 100;
+        }
+        header .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        header #branding h1 {
+            margin: 0;
+            font-size: 22px;
+            font-family: 'Playfair Display', serif;
+            color: #ffffff;
+        }
+        header nav ul {
+            padding: 0;
+            margin: 0;
+            list-style: none;
+        }
+        header nav li {
+            display: inline;
+            padding: 0 15px;
+        }
+        header nav a {
+            color: #D1D5DB;
+            text-decoration: none;
+            font-weight: 400;
+            font-size: 15px;
+            position: relative;
+            padding-bottom: 5px;
+            transition: color 0.3s ease;
+        }
+        header nav a:after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            display: block;
+            margin-top: 5px;
+            right: 0;
+            background: #2DD4BF;
+            transition: width 0.3s ease;
+        }
+        header nav a:hover {
+            color: #2DD4BF;
+        }
+        header nav a:hover:after {
+            width: 100%;
+            left: 0;
+            background: #2DD4BF;
+        }
+
+        main {
+            padding-top: 100px;
+        }
+        section {
+            padding: 60px 0;
+            border-bottom: 1px solid #1F2937;
+        }
+        section:last-of-type {
+            border-bottom: none;
+        }
+
+        h1, h2 {
+            font-family: 'Playfair Display', serif;
+            color: #ffffff;
+            font-weight: 700;
+        }
+        h1 {
+            font-size: 3.5em;
+            margin-bottom: 15px;
+            line-height: 1.2;
+        }
+        h2 {
+            font-size: 2.5em;
+            text-align: center;
+            margin-bottom: 40px;
+            position: relative;
+        }
+        h2:after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60px;
+            height: 3px;
+            background: #2DD4BF;
+            border-radius: 2px;
+        }
+        h3 {
+            font-family: 'Poppins', sans-serif;
+            font-weight: 600;
+            color: #E5E7EB;
+            font-size: 1.4em;
+        }
+
+        #hero p {
+            font-size: 1.2em;
+            max-width: 600px;
+            color: #D1D5DB;
+        }
+
+        .btn {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 12px 25px;
+            background: #2DD4BF;
+            color: #111827;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: 600;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 4px 12px rgba(45, 212, 191, 0.2);
+        }
+
+        #about .about-content {
+            display: flex;
+            gap: 40px;
+            align-items: flex-start;
+        }
+        #about .about-text {
+            flex: 2;
+        }
+        #about .skills-list {
+            flex: 1;
+            background: #1F2937;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+        }
+        #about ul {
+            list-style: none;
+            padding: 0;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+        #about li {
+            margin-bottom: 0;
+            padding: 5px 15px;
+            position: relative;
+            background-color: #374151;
+            border-radius: 20px;
+            font-size: 14px;
+            font-weight: 400;
+            color: #E5E7EB;
+        }
+        #about li:before {
+            content: none;
+        }
+
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 30px;
+        }
+        .project-card {
+            background: #1F2937;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+            text-align: center;
+        }
+
+        #contact p {
+            text-align: center;
+            max-width: 500px;
+            margin: 0 auto 30px auto;
+        }
+        .social-links {
+            list-style: none;
+            padding: 0;
+            text-align: center;
+        }
+        .social-links li {
+            display: inline-block;
+            margin: 0 15px;
+        }
+        .social-links a {
+            text-decoration: none;
+            color: #D1D5DB;
+            font-weight: 600;
+            font-size: 1.1em;
+            transition: color 0.3s ease;
+        }
+        .social-links a:hover {
+            color: #2DD4BF;
+        }
+
+        footer {
+            padding: 25px;
+            margin-top: 30px;
+            color: #D1D5DB;
+            background-color: #1F2937;
+            text-align: center;
+            font-size: 14px;
+        }
+        
+        @media(max-width: 768px) {
+            h1 { font-size: 2.5em; }
+            h2 { font-size: 2em; }
+            header { padding: 10px 0; }
+            header .container { flex-direction: column; }
+            header nav { margin-top: 10px; }
+            main { padding-top: 130px; }
+            #about .about-content { flex-direction: column; }
+            .projects-grid { grid-template-columns: 1fr; }
+        }
+
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="container">
+            <div id="branding">
+                <h1>Rithya Jayaram</h1>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#projects">Projects</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main class="container">
+
+        <!-- Hero Section -->
+        <section id="hero">
+            <h1>Driven Learner & Future Innovator</h1>
+            <p>
+                A curious learner exploring the worlds of AI, Machine Learning, and Data Science, with a passion for building intuitive web experiences.
+            </p>
+            <a href="#contact" class="btn">Get In Touch</a>
+        </section>
+
+        <!-- About Me Section -->
+        <section id="about">
+            <h2>About Me</h2>
+            <div class="about-content">
+                <div class="about-text">
+                    <p>
+                        By nature, I'm deeply curious and driven by a love for learning new things. My journey has led me to the fascinating fields of AI, Machine Learning, and Data Science, where I'm eagerly building my foundational skills.
+                    </p>
+                    <p>
+                        When I'm not diving into code, you can find me immersed in a good novel, catching up on the latest anime, or strategizing my next move in a game of chess. I also stay active through swimming and badminton, and enjoy winding down with video games and music.
+                    </p>
+                </div>
+                <div class="skills-list">
+                    <h3>Technical Skills</h3>
+                    <ul>
+                        <li>C</li>
+                        <li>C++</li>
+                        <li>Python</li>
+                        <li>SQL</li>
+                        <li>HTML</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- Projects Section -->
+        <section id="projects">
+            <h2>My Projects</h2>
+            <div class="projects-grid">
+                <div class="project-card">
+                    <h3>Skyera Weather App</h3>
+                    <p>
+                        A clean and simple web application for viewing real-time weather and air quality conditions for any city around the globe.
+                    </p>
+                    <a href="https://riti2043.github.io/skyera-final/" class="btn" target="_blank" rel="noopener noreferrer">
+                        View Project &rarr;
+                    </a>
+                </div>
+                <div class="project-card">
+                    <h3>Live Currency Converter</h3>
+                    <p>
+                        An application that converts currencies with real-time exchange rates, providing up-to-the-minute accuracy.
+                    </p>
+                    <a href="#" class="btn" target="_blank" rel="noopener noreferrer">
+                        View Project &rarr;
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact">
+            <h2>Let's Connect</h2>
+            <p>
+                I'm always open to new opportunities and collaborations. Feel free to reach out or connect with me on social media.
+            </p>
+            <ul class="social-links">
+                <li><a href="mailto:rithysstud2028@gmail.com">Email</a></li>
+                <li><a href="https://www.linkedin.com/in/rithya-jayaram-796b88335" target="_blank" rel="noopener noreferrer">LinkedIn</a></li>
+                <li><a href="https://github.com/riti2043" target="_blank" rel="noopener noreferrer">GitHub</a></li>
+            </ul>
+        </section>
+        
+    </main>
+
+    <footer>
+        <p>&copy; 2025 Rithya Jayaram. All Rights Reserved.</p>
+    </footer>
+
+</body>
+</html>
+
